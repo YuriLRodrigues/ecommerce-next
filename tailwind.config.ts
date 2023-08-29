@@ -8,13 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      gridTemplateColumns: {
+        'auto-fit-100': 'repeat(auto-fit, minmax(100px, 1fr))',
+        'auto-fit-300': 'repeat(auto-fit, minmax(300px, 1fr))',
       },
+      aspectRatio: {
+        '4/3': '4/3'
+      }
     },
   },
+  darkMode: "class",
   plugins: [],
 }
 export default config
