@@ -5,6 +5,7 @@ export type ProductCardProps = {
   price: number,
   imageUrl: string,
   inStock: number,
+  quantity?: number
 }
 
 export type ProductType = {

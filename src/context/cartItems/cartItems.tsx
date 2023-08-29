@@ -1,6 +1,11 @@
+import { ProductCardProps } from "@/app/types/productCardType";
 import { createContext, useContext, useState } from "react";
 
-const CartContext = createContext({});
+const CartContext = createContext({
+  cart: [],
+  addProduct: (prod: ProductCardProps) => {},
+  removeProduct: (prod: number) => {},
+});
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<string[]>([]);
