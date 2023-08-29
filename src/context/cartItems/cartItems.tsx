@@ -11,18 +11,21 @@ const CartContext = createContext<CartContextProps>({} as CartContextProps);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const addProduct = (product: any) => {
-    const newProduct = {...product, quantity: 1}
-    const itemsInLS = localStorage.getItem("shopping-cart")
-    const items = itemsInLS ? JSON.parse(itemsInLS) : [];
-    const itemExist = items.findIndex((item: any)=> item.id === product.id)
-    
-    if (itemExist >= 0) {
-      items[itemExist].quantity += 1
-      localStorage.setItem("shopping-cart", JSON.stringify(items))
-      return
+    if (typeof window !== 'undefined') {
+
+      const newProduct = {...product, quantity: 1}
+      const itemsInLS = localStorage.getItem("shopping-cart")
+      const items = itemsInLS ? JSON.parse(itemsInLS) : [];
+      const itemExist = items.findIndex((item: any)=> item.id === product.id)
+      
+      if (itemExist >= 0) {
+        items[itemExist].quantity += 1
+        localStorage.setItem("shopping-cart", JSON.stringify(items))
+        return
+      }
+      const allProducts = [...items, newProduct]
+      localStorage.setItem("shopping-cart", JSON.stringify(allProducts))
     }
-    const allProducts = [...items, newProduct]
-    localStorage.setItem("shopping-cart", JSON.stringify(allProducts))
   };
 
   return (
