@@ -1,12 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductCardProps } from "../types/productCardType";
 
 export default function Cart() {
-  const itemInLS = window.localStorage.getItem("shopping-cart")
+  useEffect(()=>{
+    const itemInLS = window.localStorage.getItem("shopping-cart")
+    
+    if (itemInLS) {
+      setItemsInCart(JSON.parse(itemInLS))
+    }
+  },[])
   
   const [itemsInCart, setItemsInCart] = useState<ProductCardProps[]>(
-    itemInLS ? JSON.parse(itemInLS) : []
+    []
   );
 
   const removeItem = (item: ProductCardProps) => {
