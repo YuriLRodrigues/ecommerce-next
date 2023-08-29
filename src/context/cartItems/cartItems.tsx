@@ -1,3 +1,4 @@
+"use client"
 import { ProductCardProps } from "@/app/types/productCardType";
 import { createContext, useContext } from "react";
 
