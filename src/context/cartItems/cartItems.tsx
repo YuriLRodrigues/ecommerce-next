@@ -12,7 +12,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const addProduct = (product: any) => {
     const newProduct = {...product, quantity: 1}
-    const items = JSON.parse(localStorage.getItem("shopping-cart")) || [];
+    const itemsInLS = localStorage.getItem("shopping-cart")
+    const items = itemsInLS ? JSON.parse(itemsInLS) : [];
     const itemExist = items.findIndex((item: any)=> item.id === product.id)
     
     if (itemExist >= 0) {
