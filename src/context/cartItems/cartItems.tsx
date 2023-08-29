@@ -1,14 +1,13 @@
 import { ProductCardProps } from "@/app/types/productCardType";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
-const CartContext = createContext({
-  cart: [],
-  addProduct: (prod: ProductCardProps) => {},
-  removeProduct: (prod: number) => {},
-});
+type CartContextProps = {
+  addProduct: (product: ProductCardProps) => void
+}
+
+const CartContext = createContext<CartContextProps>({} as CartContextProps);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<string[]>([]);
 
   const addProduct = (product: any) => {
     const newProduct = {...product, quantity: 1}
@@ -25,21 +24,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("shopping-cart", JSON.stringify(allProducts))
   };
 
-  const removeProduct = (productId: number) => {
-    const productIndex = cart.findIndex(
-      (product: any) => product.id === productId
-    );
-
-    if (productIndex !== -1) {
-      const updatedCart = [...cart];
-      updatedCart.splice(productIndex, 1);
-      localStorage.setItem("shopping-cart", JSON.stringify(updatedCart));
-      setCart(updatedCart);
-    }
-  };
-
   return (
-    <CartContext.Provider value={{ cart, addProduct, removeProduct }}>
+    <CartContext.Provider value={{ addProduct }}>
       {children}
     </CartContext.Provider>
   );
