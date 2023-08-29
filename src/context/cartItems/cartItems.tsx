@@ -6,20 +6,17 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<string[]>([]);
 
   const addProduct = (product: any) => {
+    const newProduct = {...product, quantity: 1}
     const items = JSON.parse(localStorage.getItem("shopping-cart")) || [];
-    console.log(items)
-    const itemExist = items.filter((item: any)=> item.name === product.name)
-    console.log(itemExist)
-    if (itemExist.length > 0) {
-      console.log('entrou')
-      const index = items.findIndex((item: any)=> item.name === product.name)
-      console.log(index)
-      items[index].quantity += 1
-      setCart(items)
+    const itemExist = items.findIndex((item: any)=> item.id === product.id)
+    
+    if (itemExist >= 0) {
+      items[itemExist].quantity += 1
+      localStorage.setItem("shopping-cart", JSON.stringify(items))
+      return
     }
-    const updatedCart = [...cart, product];
-    localStorage.setItem("shopping-cart", JSON.stringify(updatedCart));
-    setCart(updatedCart);
+    const allProducts = [...items, newProduct]
+    localStorage.setItem("shopping-cart", JSON.stringify(allProducts))
   };
 
   const removeProduct = (productId: number) => {
