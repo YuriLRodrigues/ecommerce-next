@@ -3,8 +3,10 @@ import { useState } from "react";
 import { ProductCardProps } from "../types/productCardType";
 
 export default function Cart() {
+  const itemInLS = localStorage.getItem("shopping-cart")
+  
   const [itemsInCart, setItemsInCart] = useState<ProductCardProps[]>(
-    JSON.parse(localStorage.getItem("shopping-cart")) || []
+    itemInLS ? JSON.parse(itemInLS) : []
   );
 
   const removeItem = (item: ProductCardProps) => {
