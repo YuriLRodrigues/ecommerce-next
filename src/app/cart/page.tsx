@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ProductCardProps } from "../types/productCardType";
 
 export default function Cart() {
-  const itemInLS = localStorage.getItem("shopping-cart")
+  const itemInLS = window.localStorage.getItem("shopping-cart")
   
   const [itemsInCart, setItemsInCart] = useState<ProductCardProps[]>(
     itemInLS ? JSON.parse(itemInLS) : []
@@ -15,26 +15,26 @@ export default function Cart() {
         (itemCart) => itemCart.id !== item.id
       );
       setItemsInCart(oldItems);
-      localStorage.setItem("shopping-cart", JSON.stringify(oldItems));
+      window.localStorage.setItem("shopping-cart", JSON.stringify(oldItems));
       return;
     }
     const itemUpdate = itemsInCart.findIndex(
       (itemCart) => itemCart.id === item.id
     );
     itemsInCart[itemUpdate].quantity! -= 1;
-    localStorage.setItem("shopping-cart", JSON.stringify(itemsInCart));
-    setItemsInCart(JSON.parse(localStorage.getItem("shopping-cart")!));
+    window.localStorage.setItem("shopping-cart", JSON.stringify(itemsInCart));
+    setItemsInCart(JSON.parse(window.localStorage.getItem("shopping-cart")!));
   };
 
   const appendItem = (id: number) => {
-    const items = JSON.parse(localStorage.getItem("shopping-cart")!);
+    const items = JSON.parse(window.localStorage.getItem("shopping-cart")!);
     const indexItem = items.findIndex(
       (itemCart: ProductCardProps) => itemCart.id === id
     );
     if (indexItem !== -1) {
       items[indexItem].quantity += 1;
       setItemsInCart(items)
-      localStorage.setItem("shopping-cart", JSON.stringify(items));
+      window.localStorage.setItem("shopping-cart", JSON.stringify(items));
     }
   };
 
