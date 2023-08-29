@@ -19,7 +19,7 @@ export default function Cart() {
     const itemUpdate = itemsInCart.findIndex(
       (itemCart) => itemCart.id === item.id
     );
-    itemsInCart[itemUpdate].quantity -= 1;
+    itemsInCart[itemUpdate].quantity! -= 1;
     localStorage.setItem("shopping-cart", JSON.stringify(itemsInCart));
     setItemsInCart(JSON.parse(localStorage.getItem("shopping-cart")!));
   };
