@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 export default function Header() {
-  const { menuIsOpen, setMenuIsOpen } = useMenuContext();
+  const { setMenuIsOpen, menuIsOpen } = useMenuContext();
 
   return (
     <header className="md:flex md:flex-row md:justify-between bg-zinc-900 text-white shadow-lg w-full p-4 relative z-[3]">
