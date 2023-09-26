@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+O Sistema de E-commerce em Next.js é o meu primeiro projeto, concebido para demonstrar a criação de um ambiente de compras online básico, permitindo aos usuários explorar produtos, adicionar itens ao carrinho de compras, ajustar quantidades e visualizar detalhes dos produtos. Este projeto é uma introdução emocionante ao desenvolvimento web e ao uso da biblioteca Next.js.
 
-## Getting Started
+<h1>Recursos Principais:</h1>
 
-First, run the development server:
+<h3>Página Inicial de Produtos:</h3> 
+Os usuários podem explorar uma lista de produtos exibidos em uma página inicial atrativa. Cada produto é apresentado com uma imagem, nome, preço e um botão "Adicionar ao Carrinho".
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<h3>Adição de Produtos ao Carrinho:</h3> 
+Ao clicar no botão "Adicionar ao Carrinho", os produtos são incluídos no carrinho de compras. Os usuários podem adicionar múltiplos produtos.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h3>Carrinho de Compras:</h3> 
+Uma página dedicada exibe o conteúdo do carrinho de compras. Os itens são listados com detalhes, incluindo nome, preço, quantidade e subtotal. Os usuários podem remover itens ou atualizar as quantidades diretamente nesta página.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<h3>Detalhes do Produto:</h3>
+Os usuários podem clicar em um produto para visualizar informações mais detalhadas. Isso inclui uma descrição completa, especificações, imagens adicionais e avaliações dos clientes, se aplicável.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<h3>
+Tecnologias Utilizadas:</h3>
+<div style="display:flex;gap:10px">
+  <img width=40 src="https://www.datocms-assets.com/75941/1657707878-nextjs_logo.png" alt="NextJS" />
+  <img width=40 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/512px-Typescript_logo_2020.svg.png" alt="" />
+  <img width=60 src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png" alt="" />
+</div>
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h3>Deploy:</h3>
+https://ecommerce-next-swart-eta.vercel.app/
